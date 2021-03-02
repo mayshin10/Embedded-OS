@@ -11,6 +11,8 @@ LINKER_SCRIPT = ./EOS.ld
 ASM_SRCS = $(wildcard boot/*.S)
 ASM_OBJS = $(patsubst boot/%.S, build/%.o, $(ASM_SRCS))
 
+INC_DIRS = include
+
 eos = build/eos.axf
 eos_bin = build/eos.bin
 
@@ -36,4 +38,4 @@ $(eos): $(ASM_OBJS) $(LINKER_SCRIPT)
 
 build/%.o: boot/%.S
 	mkdir -p $(shell dirname $@)
-	$(AS) -march=$(ARCH) -mcpu=$(MCPU) -g -o $@ $<
+	$(CC) -mcpu=$(MCPU) -I $(INC_DIRS) -c -g -o $@ $<
