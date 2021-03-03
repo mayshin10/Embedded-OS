@@ -1,17 +1,36 @@
 ARCH = armv7-a
 MCPU = cortex-a8
 
+TARGET = realviewPB
+
 CC = arm-none-eabi-gcc
 AS = arm-none-eabi-as
-LD = arm-none-eabi-ld
+LD = arm-none-eabi-gcc
 OC = arm-none-eabi-objcopy
 
 LINKER_SCRIPT = ./EOS.ld
+MAP_FILE = build/eos.map
 
 ASM_SRCS = $(wildcard boot/*.S)
-ASM_OBJS = $(patsubst boot/%.S, build/%.o, $(ASM_SRCS))
+ASM_OBJS = $(patsubst boot/%.S, build/%.os, $(ASM_SRCS))
 
-INC_DIRS = include
+VPATH = boot \
+				hal/$(TARGET) \
+				lib
+				
+C_SRCS = $(notdir $(wildcard boot/*.c))
+C_SRCS += $(notdir $(wildcard hal/$(TARGET)/*.c))
+C_SRCS += $(notdir $(wildcard lib/*c))
+C_OBJS = $(patsubst %.c, build/%.o, $(C_SRCS))
+
+INC_DIRS = -I include	\
+					 -I hal		\
+					 -I hal/$(TARGET)	\
+					 -I lib
+
+CFLAGS = -c -g
+
+LDFLAGS = -nostartfiles -nostdlib -nodefaultlibs -static -lgcc
 
 eos = build/eos.axf
 eos_bin = build/eos.bin
@@ -21,10 +40,10 @@ eos_bin = build/eos.bin
 all: $(eos)
 
 clean:
-	@rm -fr build
+	@rm -rf build
 
 run: $(eos)
-	qemu-system-arm -M realview-pb-a8 -kernel $(eos)
+	qemu-system-arm -M realview-pb-a8 -kernel $(eos) -nographic
 
 debug: $(eos)
 	qemu-system-arm -M realview-pb-a8 -kernel $(eos) -S -gdb tcp::1234,ipv4
@@ -32,10 +51,14 @@ debug: $(eos)
 gdb:
 	gdb-multiarch
 
-$(eos): $(ASM_OBJS) $(LINKER_SCRIPT)
-	$(LD) -n -T $(LINKER_SCRIPT) -o $(eos) $(ASM_OBJS)
+$(eos): $(ASM_OBJS) $(C_OBJS) $(LINKER_SCRIPT)
+	$(LD) -n -T $(LINKER_SCRIPT) -o $(eos) $(ASM_OBJS) $(C_OBJS) -Wl,-Map=$(MAP_FILE) $(LDFLAGS)
 	$(OC) -O binary $(eos) $(eos_bin)
 
-build/%.o: boot/%.S
+build/%.os: %.S
 	mkdir -p $(shell dirname $@)
-	$(CC) -mcpu=$(MCPU) -I $(INC_DIRS) -c -g -o $@ $<
+	$(CC) -mcpu=$(MCPU) $(INC_DIRS) $(CFLAGS) -o  $@ $<
+
+build/%.o: %.c
+	mkdir -p $(shell dirname $@)
+	$(CC) -mcpu=$(MCPU) $(INC_DIRS) $(CFLAGS) -o $@ $<
