@@ -20,7 +20,7 @@ VPATH = boot \
 				
 C_SRCS = $(notdir $(wildcard boot/*.c))
 C_SRCS += $(notdir $(wildcard hal/$(TARGET)/*.c))
-C_SRCS += $(notdir $(wildcard lib/*c))
+C_SRCS += $(notdir $(wildcard lib/*.c))
 C_OBJS = $(patsubst %.c, build/%.o, $(C_SRCS))
 
 INC_DIRS = -I include	\

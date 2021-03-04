@@ -24,6 +24,7 @@ void main(void){
 }
 
 static void Hw_init(void){
+		Hal_interrupt_init();
 		Hal_uart_init();
 }
 
