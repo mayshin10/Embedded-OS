@@ -2,6 +2,7 @@ ARCH = armv7-a
 MCPU = cortex-a8
 
 TARGET = realviewPB
+ARM_ARCH = cortexAR
 
 CC = arm-none-eabi-gcc
 AS = arm-none-eabi-as
