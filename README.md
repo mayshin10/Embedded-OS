@@ -28,7 +28,9 @@ This project is inspired by a book titled [임베디드 OS 개발 프로젝트](
 # Run
 
 build
-<code><pre>make all<pre><code>
+```
+make all
+```
 
 debug mode
 		make debug
