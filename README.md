@@ -15,14 +15,14 @@ This project is inspired by a book titled [임베디드 OS 개발 프로젝트](
 
 
 # Features
-* bootloader
-* exception handler 
-* interrupt handler 
-* task control block
-* scheduler
-* event handler 
-* messaging
-* synchronization <br><br>
+* Bootloader
+* Exception handler 
+* Interrupt handler 
+* Task control block
+* Scheduler
+* Event handler 
+* Messaging
+* Synchronization <br><br>
 
 
 
