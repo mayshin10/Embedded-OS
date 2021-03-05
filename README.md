@@ -1,31 +1,31 @@
-#RTOS Project
+# RTOS Project
 This project is inspired by [임베디드 OS 개발 프로젝트](http://www.yes24.com/Product/Goods/84909414). 
 
 
-#Machine Spec
+# Machine Spec
 * Target board : ```RealView PB-A8```
 * Architecture : ```ARMv7-A```
 * CPU          : ```ARM Cortex-A8```
-* # of core    : ```1```
+* number of cores    : ```1```
 * Board Architecture : [click](https://developer.arm.com/documentation/dui0417/d/hardware-description/pb-a8-architecture)
 
 
-#Environment
+# Environment
 * Target board : ```
 * Computing env: ``` Linux ```
 * ```gcc-arm
 
 
-#Machine Spec
+# Machine Spec
 
 
-#RTOS Functions
+# RTOS Functions
 
 
-#Run
+# Run
 
 
-#Samples
+# Samples
 <img src> </img> 
 
 
