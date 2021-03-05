@@ -33,9 +33,13 @@ make all
 ```
 
 debug mode
-		make debug
-		make gdb
+```
+make debug 
+make gdb
+```
 
 Run
-		make run
-		exit: ctr+A, x
+```
+make run
+qemu exit typing: ctr+A, x
+```
