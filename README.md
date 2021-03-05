@@ -25,13 +25,15 @@ This project is inspired by a book titled [임베디드 OS 개발 프로젝트](
 * Synchronization <br><br>
 
 
-
 # Run
 
+build
+		make all
 
-# Samples
-<img src> </img> 
+debug mode
+		make debug
+		make gdb
 
-
-
- 
+Run
+		make run
+		exit: ctr+A, x
