@@ -41,5 +41,5 @@ make gdb
 Run
 ```
 make run
-qemu exit typing: ctr+A, x
+qemu exit keys: ctr+A, x
 ```
