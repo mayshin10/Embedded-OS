@@ -1,5 +1,5 @@
 # RTOS Project
-This project is inspired by a book titled [임베디드 OS 개발 프로젝트](http://www.yes24.com/Product/Goods/84909414) by 이만우. The goal is to design RTOS(Real-Time OS) used in ARM embedded environments. It would be checked in the QEMU environment. It features bootloader, exception handler, interrupt handler, task control block, scheduler, event handler, messagin, and synchronization. <br><br>
+This project is inspired by a book titled [임베디드 OS 개발 프로젝트](http://www.yes24.com/Product/Goods/84909414) by 이만우. The goal is to design RTOS(Real-Time OS) used in ARM embedded machines. It would be checked in the QEMU environment. It features bootloader, exception handler, interrupt handler, task control block, scheduler, event handler, messagin, and synchronization. <br><br>
 
 # Machine Spec
 * Target board : ```RealView PB-A8```
