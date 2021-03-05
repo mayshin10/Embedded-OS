@@ -1,5 +1,5 @@
 # RTOS Project
-This project is inspired by [임베디드 OS 개발 프로젝트](http://www.yes24.com/Product/Goods/84909414). 
+This project is inspired by [임베디드 OS 개발 프로젝트](http://www.yes24.com/Product/Goods/84909414).<br>
 
 
 # Machine Spec
@@ -7,7 +7,7 @@ This project is inspired by [임베디드 OS 개발 프로젝트](http://www.yes
 * Architecture : ```ARMv7-A```
 * CPU          : ```ARM Cortex-A8```
 * number of cores    : ```1```
-* Board Architecture : [click](https://developer.arm.com/documentation/dui0417/d/hardware-description/pb-a8-architecture)
+* Board Architecture : [click here: Arm developer](https://developer.arm.com/documentation/dui0417/d/hardware-description/pb-a8-architecture)
 
 
 # Environment
